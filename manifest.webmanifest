@@ -1,0 +1,17 @@
+{
+  "name": "每日強勢族群與 VIX 研究",
+  "short_name": "強勢族群VIX",
+  "description": "美股每日強勢族群、VIX 研判、四大指數與 ETF 走勢",
+  "lang": "zh-TW",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0f1d33",
+  "theme_color": "#0f1d33",
+  "icons": [
+    {"src": "icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png"},
+    {"src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ]
+}
