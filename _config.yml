@@ -1,0 +1,4 @@
+# GitHub Pages：建置工具與日報原始檔不放上網站
+exclude:
+  - tools
+  - src
