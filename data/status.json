@@ -1,0 +1,56 @@
+{
+ "date": "2026-10-30",
+ "checked_at": "2026-11-02T07:45:24+08:00",
+ "ok": true,
+ "summary": "全部通過",
+ "checks": [
+  {
+   "id": "trade_day",
+   "name": "最新交易日",
+   "state": "ok",
+   "detail": "最近一個已收盤的美股交易日是 2026-10-30"
+  },
+  {
+   "id": "digest",
+   "name": "日報網頁",
+   "state": "ok",
+   "detail": "日報網頁涵蓋 2026-10-30"
+  },
+  {
+   "id": "app_src",
+   "name": "App 內容",
+   "state": "ok",
+   "detail": "App 內容涵蓋 2026-10-30"
+  },
+  {
+   "id": "app_live",
+   "name": "線上 App",
+   "state": "ok",
+   "detail": "線上網址連不到（URLError），改查 main 分支：index.html 顯示 10/30 收盤"
+  },
+  {
+   "id": "history",
+   "name": "歷史紀錄",
+   "state": "ok",
+   "detail": "歷史紀錄已有 2026-10-30（共 2 列）"
+  },
+  {
+   "id": "closes",
+   "name": "收盤核對",
+   "state": "ok",
+   "detail": "6 項一致"
+  },
+  {
+   "id": "verdict",
+   "name": "評分與倉位",
+   "state": "ok",
+   "detail": "評分 4/10、倉位 40%，三處一致"
+  },
+  {
+   "id": "term",
+   "name": "期限結構",
+   "state": "ok",
+   "detail": "Contango +1.36（收窄） 與 VIX3M − VIX = +1.36 一致"
+  }
+ ]
+}

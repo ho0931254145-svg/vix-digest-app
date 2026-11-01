@@ -5,6 +5,8 @@ Usage: python -I build_snapshot.py <page.html> <out index.html>
 Replaces the Google Fonts <link> with @font-face rules whose fonts are subset to
 the characters on the page and embedded as data URIs, and wraps the page in a
 full HTML document. Font files are read from the fonts/ folder next to this script.
+The document head also loads app-extra.js, which adds the history and watchdog
+panel from data/*.json; it lives only in the App, never in the digest page.
 """
 import base64, io, os, sys
 from fontTools import subset
@@ -44,6 +46,7 @@ if len(idx) != 1:
 lines[idx[0]] = block
 skeleton = ('<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8">'
             '<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">'
-            '<style>[hidden]{display:none!important}body{margin:0}</style></head><body>')
+            '<style>[hidden]{display:none!important}body{margin:0}</style>'
+            '<script src="app-extra.js" defer></script></head><body>')
 io.open(out, 'w', encoding='utf-8', newline='\n').write(skeleton + '\n' + '\n'.join(lines) + '\n</body></html>\n')
 print('wrote %s (%d KB, %d characters subset)' % (out, os.path.getsize(out) // 1024, len(unicodes)))
