@@ -46,13 +46,18 @@ if prev and prev['d'] not in rows and hd.get('score_prev') is not None and hd.ge
     rows[prev['d']] = dict(prev, score=as_int(hd['score_prev']), pos=as_int(hd['pos_prev']), state=None,
                            term=None, src='前日回推')
 
+old_rows = log.get('rows', [])
+new_rows = [rows[d] for d in sorted(rows)]
+if new_rows == old_rows:
+    print('history: %s already recorded (%d rows), nothing to change' % (today['d'], len(old_rows)))
+    sys.exit(0)
 log = {
     'note': '每日強勢族群與 VIX 日報的歷史紀錄；每個美股交易日一列，由 tools/history.py 從日報網頁抽出。',
     'updated': datetime.now(ZoneInfo('Asia/Taipei')).isoformat(timespec='seconds'),
     'fields': {'d': '美股交易日', 'vix': 'VIX 收盤', 'vix3m': 'VIX3M 收盤', 'spread': 'VIX3M − VIX',
                'score': '做多評分（/10）', 'pos': '建議倉位（%）', 'state': 'VIX 狀態', 'term': '期限結構（日報原文）',
                'spx': 'S&P 500', 'ndx': 'NASDAQ', 'dji': '道瓊', 'rut': 'Russell 2000', 'src': '來源'},
-    'rows': [rows[d] for d in sorted(rows)],
+    'rows': new_rows,
 }
 os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True)
 tmp = out + '.new'

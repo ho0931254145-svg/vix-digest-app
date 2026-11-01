@@ -63,3 +63,10 @@ if check.returncode:
     sys.exit('page checks failed; src/page.html left unchanged')
 os.replace(tmp, dst)
 print('src/page.html updated to the %s digest' % page_date)
+
+# Record the day in data/history.json for the App's history panel (same as running tools/history.py)
+here = os.path.dirname(os.path.abspath(__file__))
+hist = subprocess.run([sys.executable, '-I', os.path.join(here, 'history.py'), dst,
+                       os.path.join(os.path.dirname(os.path.abspath(dst)), '..', 'data', 'history.json')])
+if hist.returncode:
+    print('warning: history.py failed; run it again before committing')

@@ -20,7 +20,7 @@ https://claude.ai/artifact/BvJ5h6vb55n3F6DiYRqLWo ，這裡把它轉成 App 用�
    - 結束碼 3：App 已經是最新，**到此結束，不 commit**。
    - 結束碼 4：日報網頁還沒更新到最新交易日。等 5 分鐘後回到第 2 步重新讀取，最多重試 9 次（約 45 分鐘）；仍是 4 就不上線，回報「日報網頁未更新，App 未上線」。
    - 其他：不上線，回報錯誤訊息。
-4. 歷史紀錄：`python3 -I tools/history.py src/page.html data/history.json`（同一天重跑會覆蓋同一列，不會重複）。失敗就停下來回報，不要 push。
+4. 歷史紀錄：mirror.py 結束碼 0 時已自動寫入 `data/history.json`；看到 `history.py failed` 警告才需手動跑 `python3 -I tools/history.py src/page.html data/history.json`（同一天重跑會覆蓋同一列，不會重複）。
 5. 建置：`python3 -I tools/build_snapshot.py src/page.html index.html`
 6. 上線：
    ```bash
@@ -38,12 +38,13 @@ https://claude.ai/artifact/BvJ5h6vb55n3F6DiYRqLWo ，這裡把它轉成 App 用�
 
 ## Watchdog（另一個排程，台北週二至週六 09:43）
 
-排程「VIX 日報 Watchdog」在上面的流程跑完後獨立核對，結果寫進 `data/status.json`，App 的「近期評分與倉位」區塊顯示核對徽章。它不改日報、不改 App 頁面、不改 `data/history.json`。
+排程「VIX 日報 Watchdog」在上面的流程跑完後獨立核對，結果寫進 `data/status.json`，App 的「近期評分與倉位」區塊顯示核對徽章。它不改日報、不改 App 頁面；`data/history.json` 只在缺當日那一列時補登。
 
 1. `git fetch origin && git reset --hard origin/main`。
 2. 用 Artifact 工具 `read` 日報網頁存成檔案。
-3. `python3 -I tools/watchdog.py --artifact <檔案>`：結束碼 0 全部通過、2 有異常、1 Watchdog 本身出錯（三種都會寫出 status.json）。
-4. `git add data/status.json && git commit -m "watchdog <資料日期>: <摘要>" && git push origin main`（push 被拒就 `git pull --rebase origin main` 再推一次）。
+3. 補登歷史：`python3 -I tools/history.py src/page.html data/history.json`（每日流程若漏 commit 歷史紀錄，這裡會補上；值與頁面相同就不會有變更）。
+4. `python3 -I tools/watchdog.py --artifact <檔案>`：結束碼 0 全部通過、2 有異常、1 Watchdog 本身出錯（三種都會寫出 status.json）。
+5. `git add data/status.json data/history.json && git commit -m "watchdog <資料日期>: <摘要>" && git push origin main`（push 被拒就 `git pull --rebase origin main` 再推一次）。
 
 核對項目：最新交易日、日報網頁日期、App 內容日期、線上 App 日期（連不到網址就改查 main 分支的 index.html）、歷史紀錄、四大指數與 VIX／VIX3M 收盤對 Yahoo、評分與倉位在頂端列／頁首／VIX 研判總覽三處一致且前日值對得上歷史紀錄、期限結構文字與 VIX3M − VIX 一致。
 
