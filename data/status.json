@@ -1,6 +1,6 @@
 {
- "date": "2026-11-03",
- "checked_at": "2026-11-04T09:44:03+08:00",
+ "date": "2026-11-04",
+ "checked_at": "2026-11-05T09:43:50+08:00",
  "ok": true,
  "summary": "全部通過",
  "checks": [
@@ -8,31 +8,31 @@
    "id": "trade_day",
    "name": "最新交易日",
    "state": "ok",
-   "detail": "最近一個已收盤的美股交易日是 2026-11-03"
+   "detail": "最近一個已收盤的美股交易日是 2026-11-04"
   },
   {
    "id": "digest",
    "name": "日報網頁",
    "state": "ok",
-   "detail": "日報網頁涵蓋 2026-11-03"
+   "detail": "日報網頁涵蓋 2026-11-04"
   },
   {
    "id": "app_src",
    "name": "App 內容",
    "state": "ok",
-   "detail": "App 內容涵蓋 2026-11-03"
+   "detail": "App 內容涵蓋 2026-11-04"
   },
   {
    "id": "app_live",
    "name": "線上 App",
    "state": "ok",
-   "detail": "線上網址連不到（URLError），改查 main 分支：index.html 顯示 11/3 收盤"
+   "detail": "線上網址連不到（URLError），改查 main 分支：index.html 顯示 11/4 收盤"
   },
   {
    "id": "history",
    "name": "歷史紀錄",
    "state": "ok",
-   "detail": "歷史紀錄已有 2026-11-03（共 4 列）"
+   "detail": "歷史紀錄已有 2026-11-04（共 5 列）"
   },
   {
    "id": "closes",
@@ -44,13 +44,13 @@
    "id": "verdict",
    "name": "評分與倉位",
    "state": "ok",
-   "detail": "評分 3/10、倉位 30%，三處一致"
+   "detail": "評分 5/10、倉位 50%，三處一致"
   },
   {
    "id": "term",
    "name": "期限結構",
    "state": "ok",
-   "detail": "Contango +0.44（趨平） 與 VIX3M − VIX = +0.44 一致"
+   "detail": "Contango +2.19（恢復正常） 與 VIX3M − VIX = +2.19 一致"
   }
  ]
 }
