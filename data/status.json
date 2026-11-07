@@ -1,6 +1,6 @@
 {
- "date": "2026-11-05",
- "checked_at": "2026-11-06T17:33:30+08:00",
+ "date": "2026-11-06",
+ "checked_at": "2026-11-07T09:43:42+08:00",
  "ok": true,
  "summary": "全部通過",
  "checks": [
@@ -8,31 +8,31 @@
    "id": "trade_day",
    "name": "最新交易日",
    "state": "ok",
-   "detail": "最近一個已收盤的美股交易日是 2026-11-05"
+   "detail": "最近一個已收盤的美股交易日是 2026-11-06"
   },
   {
    "id": "digest",
    "name": "日報網頁",
    "state": "ok",
-   "detail": "日報網頁涵蓋 2026-11-05"
+   "detail": "日報網頁涵蓋 2026-11-06"
   },
   {
    "id": "app_src",
    "name": "App 內容",
    "state": "ok",
-   "detail": "App 內容涵蓋 2026-11-05"
+   "detail": "App 內容涵蓋 2026-11-06"
   },
   {
    "id": "app_live",
    "name": "線上 App",
    "state": "ok",
-   "detail": "線上網址連不到（URLError），改查 main 分支：index.html 顯示 11/5 收盤"
+   "detail": "線上網址連不到（URLError），改查 main 分支：index.html 顯示 11/6 收盤"
   },
   {
    "id": "history",
    "name": "歷史紀錄",
    "state": "ok",
-   "detail": "歷史紀錄已有 2026-11-05（共 6 列）"
+   "detail": "歷史紀錄已有 2026-11-06（共 7 列）"
   },
   {
    "id": "closes",
@@ -50,7 +50,7 @@
    "id": "term",
    "name": "期限結構",
    "state": "ok",
-   "detail": "Backwardation −2.63（逆價差） 與 VIX3M − VIX = -2.63 一致"
+   "detail": "Backwardation −1.04（逆價差收斂） 與 VIX3M − VIX = -1.04 一致"
   }
  ]
 }
