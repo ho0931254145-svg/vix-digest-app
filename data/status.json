@@ -1,38 +1,38 @@
 {
- "date": "2026-11-12",
- "checked_at": "2026-11-13T09:44:02+08:00",
+ "date": "2026-11-13",
+ "checked_at": "2026-11-14T09:43:44+08:00",
  "ok": false,
- "summary": "4 項異常：日報網頁、App 內容、線上 App、歷史紀錄",
+ "summary": "3 項異常：App 內容、線上 App、歷史紀錄",
  "checks": [
   {
    "id": "trade_day",
    "name": "最新交易日",
    "state": "ok",
-   "detail": "最近一個已收盤的美股交易日是 2026-11-12"
+   "detail": "最近一個已收盤的美股交易日是 2026-11-13"
   },
   {
    "id": "digest",
    "name": "日報網頁",
-   "state": "fail",
-   "detail": "日報網頁停在 2026-11-10，未更新到 2026-11-12"
+   "state": "ok",
+   "detail": "日報網頁涵蓋 2026-11-13"
   },
   {
    "id": "app_src",
    "name": "App 內容",
    "state": "fail",
-   "detail": "App 內容停在 2026-11-06，未更新到 2026-11-12"
+   "detail": "App 內容停在 2026-11-06，未更新到 2026-11-13"
   },
   {
    "id": "app_live",
    "name": "線上 App",
    "state": "fail",
-   "detail": "線上網址連不到（URLError），改查 main 分支：index.html 未顯示 11/12 收盤"
+   "detail": "線上網址連不到（URLError），改查 main 分支：index.html 未顯示 11/13 收盤"
   },
   {
    "id": "history",
    "name": "歷史紀錄",
    "state": "fail",
-   "detail": "歷史紀錄最新到 2026-11-06，缺 2026-11-12"
+   "detail": "歷史紀錄最新到 2026-11-06，缺 2026-11-13"
   },
   {
    "id": "closes",
